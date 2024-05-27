@@ -5,32 +5,34 @@
         </div>
         <div class="form-div">
             <h1>Sign in</h1>
-            <div class="login-form-fields">
-                <div class="login-form-field-div">
-                    <input placeholder="Username" id="username" type="username" class="username-field" pInputText />
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                <div class="login-form-fields">
+                    <div class="login-form-field-div">
+                        <input formControlName="username" placeholder="Username" id="username" type="username" class="username-field" pInputText />
+                    </div>
+                    <div class="login-form-field-div">
+                        <p-password formControlName="password" placeholder="Password" id="password" styleClass="login-form-field"></p-password>
+                    </div>
                 </div>
-                <div class="login-form-field-div">
-                    <p-password placeholder="Password" id="password" styleClass="login-form-field"></p-password>
+                <div class="login-form-buttons">
+                    <div class="login-form-button-div">
+                        <button [loading]="isLoading" pButton type="submit" class="login-form-button" icon="pi pi-check" iconPos="left"
+                            label="Login">
+                        </button>
+                    </div>
+                    <div class="login-form-button-div">
+                        <button pButton type="button" class="login-form-button p-button-secondary" icon="pi pi-lock"
+                            iconPos="left" label="I forgot my password">
+                        </button>
+                    </div>
+                    <p-divider></p-divider>
+                    <div class="login-form-button-div">
+                        <button pButton type="button" class="login-form-button p-button-warning" icon="pi pi-user-plus"
+                            iconPos="left" label="Sign up">
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="login-form-buttons">
-                <div class="login-form-button-div">
-                    <button pButton type="button" class="login-form-button" icon="pi pi-check" iconPos="left"
-                        label="Login">
-                    </button>
-                </div>
-                <div class="login-form-button-div">
-                    <button pButton type="button" class="login-form-button p-button-secondary" icon="pi pi-lock"
-                        iconPos="left" label="I forgot my password">
-                    </button>
-                </div>
-                <p-divider></p-divider>
-                <div class="login-form-button-div">
-                    <button pButton type="button" class="login-form-button p-button-warning" icon="pi pi-user-plus"
-                        iconPos="left" label="Sign up">
-                    </button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>
